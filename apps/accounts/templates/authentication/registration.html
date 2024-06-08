@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <div class="registration-container">
+    <div class="registration-box">
+      <h2>Registration</h2>
+
+      {% if messages %}
+        <div id="custom-messages">
+          {% for message in messages %}
+            <p class="custom-message {{ message.tags }}">{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <form method="post" class="registration-form" action="{% url 'accounts:registration' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <div class="form-actions">
+          <button type="submit">Register</button>
+          <a href="{% url 'accounts:signin' %}" class="back-link">Back</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    .registration-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .registration-box {
+      padding: 60px;
+      background-color: beige;
+      border: 4px solid #ccc;
+      border-radius: 10px;
+      text-align: left;
+      max-width: 1000px;
+    }
+
+    .registration-box h2 {
+      font-size: 28px;
+    }
+
+    .registration-box p {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .registration-form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .registration-form > * {
+      margin-bottom: 10px;
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .registration-form button[type="submit"] {
+      margin-top: 0;
+    }
+
+    .back-link {
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    #custom-messages .custom-message {
+      font-size: 16px;
+    }
+
+    .custom-message.error {
+      color: red;
+    }
+
+    .custom-message.success {
+      color: green;
+    }
+  </style>
+
+
+{% endblock %}
+
+
+
+{% block extra_scripts %}
+<script>
+  function validateForm() {
+    const passwordInput = document.getElementById("id_password");
+    const confirmPasswordInput = document.getElementById("id_password_confirmation");
+    const errorDiv = document.getElementById("custom-messages");
+
+    errorDiv.innerHTML = ""; // Clear previous error messages
+
+    // Check if the password meets the minimum length requirement
+    if (passwordInput.value.length < 8) {
+      errorDiv.innerHTML = "<p class='custom-message error'>Password must be at least 8 characters long.</p>";
+      return false; // Cancel form submission
+    } else if (passwordInput.value !== confirmPasswordInput.value) {
+      errorDiv.innerHTML = "<p class='custom-message error'>Passwords do not match.</p>";
+      return false; // Cancel form submission
+    }
+
+    return true; // Allow form submission if all checks pass
+  }
+</script>
+{% endblock %}

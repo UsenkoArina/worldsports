@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="main-container">
+    <div class="profile-box">
+      <div class="profile-header">
+        <h2>WELCOME, {{ user.username }}</h2>
+        <p class="last-login">Last Login: {{ last_login|date:"F d, Y H:i" }}</p>
+      </div>
+      <div class="profile-content">
+      </div>
+      <div class="logout-section">
+        <a href="{% url 'accounts:logout' %}" class="btn logout-btn">Log out</a>
+      </div>
+    </div>
+    <div class="sidebar">
+      <h3>SIDEBAR: </h3>
+      <a href="{% url 'accounts:saved_articles' %}" class="btn sidebar-btn">Saved Articles</a>
+      <a href="{% url 'accounts:favorites_articles' %}" class="btn sidebar-btn">Favorites Articles</a>
+      <a href="{% url 'accounts:commented_articles' %}" class="btn sidebar-btn">Commented Articles</a>
+    </div>
+  </div>
+{% endblock %}
+
+<style>
+  .main-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+  .profile-box {
+    padding: 60px;
+    background-color: beige;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    text-align: left;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  .sidebar {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 2px solid #333;
+    border-radius: 10px;
+    width: 200px;
+  }
+  .profile-header {
+    margin-bottom: 20px;
+  }
+  .profile-header h2 {
+    font-size: 28px;
+    color: #333;
+  }
+  .profile-header .username {
+    font-size: 18px;
+    color: #615f5f;
+  }
+  .profile-header .registration-date {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px; 
+  }
+  .profile-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .actions-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .profile-section h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #444;
+  }
+  .saved-articles-btn {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #d3d3d3;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  .saved-articles-btn:hover {
+    text-decoration: underline;
+  }
+  .logout-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5f98d4;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+  }
+  .logout-btn {
+    background-color: #dc3545;
+  }
+  .btn:hover {
+    opacity: 0.9;
+  }
+  
+  .sidebar-btn {
+    width: 100%; /* Make buttons take the full width of the sidebar */
+    text-align: center; /* Center the text */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    font-size: 12px; /* Smaller font size */
+  }
+</style>

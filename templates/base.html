@@ -1,0 +1,761 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>World Sports</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+<<<<<<< HEAD
+
+=======
+>>>>>>> c9bb8a885c475337dfe5a55801a6f9fa8076a454
+        header {
+            background-color: #232121;
+            color: #c59c5e;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        header h1 a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        header nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        header nav li {
+            margin: 0 10px;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 80px auto 30px;
+            padding: 20px 30px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 30px;
+        }
+
+        section ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+        }
+
+        section li {
+            margin: 0 20px;
+        }
+
+        section a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .login-btn {
+            font-size: 0.8rem;
+            padding: 10px 20px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0 10px;
+            font-family: "Times New Roman", sans-serif;
+            background-color: #ffa500;
+        }
+
+        .login-btn {
+            background-color: #ffa500;
+            color: #333;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #f9f9f9;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #5F5B5B;
+        }
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+        }
+
+        p {
+            font-family: Arial, sans-serif;
+        }
+
+
+
+        .register-link {
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            text-decoration: none;
+            color: #000;
+            margin-top: 10px;
+        }
+
+        .register-link:hover {
+            text-decoration: underline;
+        }
+
+        .register-form {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .register-form label {
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .register-form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .register-form button {
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #0074d9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .register-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .button10 {
+            cursor: pointer;
+        }
+
+        .searchBox {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 50px;
+            box-shadow: 0px 4px 6px rgba(224, 4, 4, 0.1);
+            overflow: hidden;
+            width: 500px;
+        }
+
+        .searchInput {
+            border: none;
+            background: none;
+            outline: none;
+            color: #333;
+            font-size: 15px;
+            padding: 12px;
+            width: 100%;
+            border-radius: 50px;
+        }
+
+        .searchBox {
+            display: flex;
+            max-width: 500px;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 8px;
+            background: #2f3640;
+            border-radius: 50px;
+            position: relative;
+<<<<<<< HEAD
+            padding: 5px;
+        }
+
+   
+=======
+            padding: 5px; 
+        }
+
+>>>>>>> c9bb8a885c475337dfe5a55801a6f9fa8076a454
+        .searchInput {
+            border: none;
+            background: none;
+            outline: none;
+            color: white;
+            font-size: 18px;
+            padding: 16px 46px 16px 26px;
+            width: 100%;
+        }
+
+        .searchButton {
+            width: 60px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-2, linear-gradient(90deg, #2AF598 0%, #009EFD 100%));
+            border: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 7px;
+            right: 10px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+        }
+
+        .searchButton::before {
+            content: "";
+            position: absolute;
+            background-color: transparent;
+            width: 100%;
+            height: 100%;
+            left: 0%;
+            bottom: 0%;
+            transform: translate(-100%, 100%);
+            border-radius: inherit;
+        }
+
+        .searchButton svg circle {
+            fill: #2AF598;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .searchButton:hover {
+            transform: scale(1.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+<<<<<<< HEAD
+
+=======
+>>>>>>> c9bb8a885c475337dfe5a55801a6f9fa8076a454
+        .logout-btn {
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px; 
+        }
+
+        button:hover,
+        .logout-btn:hover {
+            opacity: 0.8;
+        }
+
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px; 
+        }
+
+        .profile-box {
+            padding: 60px;
+            background-color: beige;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            text-align: left;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .sidebar {
+            padding: 20px;
+            background-color: #f0f0f0;
+            border: 2px solid #333;
+            border-radius: 10px;
+            width: 200px;
+        }
+
+        .profile-header {
+            margin-bottom: 20px;
+        }
+
+        .profile-header h2 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        .profile-header .username {
+            font-size: 18px;
+            color: #615f5f;
+        }
+
+        .profile-header .registration-date {
+            font-size: 16px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .profile-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .actions-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .profile-section h3 {
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: #444;
+        }
+
+        .saved-articles-btn {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            background-color: #d3d3d3;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .saved-articles-btn:hover {
+            text-decoration: underline;
+        }
+
+        .logout-section {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #5f98d4;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .logout-btn {
+            background-color: #dc3545;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .comment {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .comment-username {
+            font-weight: bold;
+        }
+
+        .comment-date {
+            font-size: 12px;
+        }
+
+        .comment-text {
+            margin-top: 5px;
+        }
+
+        .registration-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .registration-box {
+            padding: 20px;
+            background-color: beige;
+            border: 4px solid #ccc;
+            border-radius: 10px;
+            text-align: left;
+            max-width: 1000px;
+        }
+
+        .registration-box h2 {
+            font-size: 28px;
+        }
+
+        .registration-box p {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .registration-form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .registration-form>* {
+            margin-bottom: 10px;
+        }
+
+        .form-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .registration-form button[type="submit"] {
+            margin-top: 0;
+        }
+
+        .back-link {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        #custom-messages .custom-message {
+            font-size: 16px;
+        }
+
+        .custom-message.error {
+            color: red;
+        }
+
+        .custom-message.success {
+            color: green;
+        }
+
+
+        .signin-box {
+            padding: 20px;
+            background-color: beige;
+            border: 3px solid #ccc;
+            border-radius: 10px;
+            text-align: left;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .signin-box h2 {
+            margin-bottom: 20px;
+        }
+
+        .signin-box button {
+            margin-top: 10px;
+        }
+
+        .signin-box form input,
+        .signin-box form select,
+        .signin-box form textarea {
+            margin-bottom: 10px;
+        }
+
+        .signup-link {
+            color: #3636b1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .signup-container p {
+            margin-bottom: 10px;
+        }
+
+
+        .orange-link {
+            color: orange;
+        }
+
+        .orange-link:hover {
+            text-decoration: underline;
+        }
+
+        .saved-articles-heading {
+            font-size: 2rem;
+        }
+
+        .saved-articles-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .saved-article-item {
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .saved-article-link {
+            display: flex;
+            text-decoration: none;
+            color: #000;
+            flex: 1;
+        }
+
+        .article-thumbnail {
+            max-width: 30%;
+            max-height: 200px;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+
+        .article-thumbnail img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .article-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 20px;
+        }
+
+        .article-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            word-wrap: break-word;
+            white-space: normal;
+            margin-left: 0;
+        }
+
+        .article-description {
+            font-size: 1rem;
+            color: #000000;
+            margin-top: 5px;
+        }
+
+        .commented-articles-heading {
+            font-size: 2rem;
+        }
+
+        .commented-articles-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .commented-article-item {
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .commented-article-link {
+            display: flex;
+            text-decoration: none;
+            color: #000;
+            flex: 1;
+        }
+
+        .article-thumbnail {
+            max-width: 30%;
+            max-height: 200px;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+
+        .article-thumbnail img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .article-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 20px;
+        }
+
+        .article-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            word-wrap: break-word;
+            white-space: normal;
+            margin-left: 0;
+        }
+
+        .article-description {
+            font-size: 1rem;
+            color: #000000;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1><a href="{% url 'articles:home' %}">World Sports</a></h1>
+        <a href="{% url 'articles:search' %}" class="search-link">
+            <div class="InputContainer">
+                <input placeholder="Search...">
+            </div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="{% url 'articles:boxing_articles' %}">Boxing</a></li>
+                <li><a href="{% url 'articles:mma_articles' %}">MMA</a></li>
+                <li><a href="{% url 'articles:golf_articles' %}">Golf</a></li>
+                <li><a href="{% url 'articles:football_articles' %}">Football</a></li>
+                <li><a href="{% url 'articles:basketball_articles' %}">Basketball</a></li>
+                <li><a href="{% url 'articles:hockey_articles' %}">Hockey</a></li>
+                <li><a href="{% url 'articles:tennis_articles' %}">Tennis</a></li>
+                <li><a href="{% url 'articles:formula1_articles' %}">Formula 1</a></li>
+                <li class="dropdown">
+                    <a href="#" class="sport-dropdown-toggle">•••</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'articles:poker_articles' %}">Poker</a>
+                        <a href="{% url 'articles:athletics_articles' %}">Athletics</a>
+                        <a href="{% url 'articles:swimming_articles' %}">Swimming</a>
+                        <a href="{% url 'articles:cycling_articles' %}">Cycling</a>
+                        <a href="{% url 'articles:volleyball_articles' %}">Volleyball</a>
+                        <a href="{% url 'articles:snooker_articles' %}">Snooker</a>
+                        <a href="{% url 'articles:cybersports_articles' %}">Cybersports</a>
+                        <a href="{% url 'articles:olympic_sports_articles' %}">Olympic Sports</a>
+                        <a href="{% url 'articles:other_sports_articles' %}">Other sports</a>
+                    </div>
+                </li>
+                {% if user.is_authenticated %}
+                <a href="{% url 'accounts:profileInfo' %}">
+                    <button>{{ user.username }}</button>
+                </a>
+                {% else %}
+                <li><a href="{% url 'accounts:signin' %}" class="login-btn">Sign In</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        {% block content %}
+        {% endblock %}
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".sport-dropdown-toggle").click(function () {
+                $(this).next(".dropdown-content").slideToggle();
+            });
+
+            $(".user-dropdown-toggle").click(function () {
+                $(this).next(".dropdown-content").slideToggle();
+            });
+        });
+    </script>
+
+</body>
+
+</html>

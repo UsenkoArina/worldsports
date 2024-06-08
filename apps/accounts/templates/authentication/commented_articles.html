@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="commented-articles-heading">Commented Articles</h2>
+    <ul class="commented-articles-list">
+        {% for article in commented_articles %}
+            <li class="commented-article-item">
+                <a href="{% url 'articles:detail' article.id %}" class="commented-article-link">
+                    <div class="article-thumbnail">
+                        <img src="{{ article.image.url }}" alt="Article Image" class="article-image">
+                    </div>
+                    <div class="article-info">
+                        <h3 class="article-title">{{ article.article_title }}</h3>
+                        <p class="article-description">{{ article.article_description }}</p>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+<style>
+    .commented-articles-heading {
+        font-size: 2rem;
+    }
+
+    .commented-articles-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .commented-article-item {
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .commented-article-link {
+        display: flex;
+        text-decoration: none;
+        color: #000;
+        flex: 1;
+    }
+
+    .article-thumbnail {
+        max-width: 30%;
+        max-height: 200px;
+        overflow: hidden;
+        margin-right: 20px;
+    }
+
+    .article-thumbnail img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .article-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 20px;
+    }
+
+    .article-title {
+        font-weight: bold;
+        font-size: 1.2rem;
+        word-wrap: break-word;
+        white-space: normal;
+        margin-left: 0;
+    }
+
+    .article-description {
+        font-size: 1rem;
+        color: #000000;
+        margin-top: 5px;
+    }
+</style>

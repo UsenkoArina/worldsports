@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+
+    <div class="detail">
+
+      {% if user.is_authenticated %}
+      <form method="post" action="{% url 'articles:save_article' article.id %}" style="float: right; margin-left: 10px;">
+          {% csrf_token %}
+          <button type="submit" style="background-color: rgb(141, 209, 226); color: black;">
+              {% if user in article.saved_by.all %}
+                  Remove from Saved
+              {% else %}
+                  Save Article
+              {% endif %}
+          </button>
+      </form>
+  {% endif %}
+        <h2>{{ article.article_title }}</h2>
+        <img src="{{ article.image.url }}" alt="Article Image" style="max-width: 100%; margin-bottom: 10px;">
+
+        <!-- <p>{{ article.article_text|linebreaksbr }}</p> -->
+        <p>{{ article.article_text|safe }}</p>
+
+        <p style="text-transform: uppercase; font-size: 12px; margin-bottom: 10px;">{{ article.pub_date }}</p>
+
+        <h2>Do you like this article?</h2>
+
+        {% for comment in comments %}
+            <div class="comment">
+                <div class="comment-header">
+                    <p class="comment-username">{{ comment.user.username }}</p>
+                    <p class="comment-date">{{ comment.created_at }}</p>
+                </div>
+                <p class="comment-text">{{ comment.text }}</p>
+            </div>
+        {% endfor %}
+
+        <!-- Displaying the number of likes for all users -->
+        <p><strong>Likes:</strong> {{ article.likes.count }}</p>
+
+        {% if user.is_authenticated %}
+            <form method="post" action="/articles/{{ article.id }}/" style="display: inline-block;">
+                {% csrf_token %}
+                <button type="submit" name="like" style="background-color: orange;">Like</button>
+            </form>
+            <form method="post" action="/articles/{{ article.id }}/" style="display: inline-block;">
+                {% csrf_token %}
+                <button type="submit" name="unlike" style="background-color: orange;">Unlike</button>
+            </form>
+            
+            <h3>Add a comment</h3>
+            <form method="post" action="/articles/{{ article.id }}/">                
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit">Submit</button>
+            </form>
+        {% else %}
+            <p>Only authenticated users can leave comments and like articles. <a href="{% url 'accounts:signin' %}" class="orange-link">Click here</a> to sign in.</p>
+        {% endif %}
+    </div>
+
+
+{% endblock %}
+
+<style>
+   .comment {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-username {
+  font-weight: bold;
+}
+
+.comment-date {
+  font-size: 12px;
+}
+
+.comment-text {
+  margin-top: 5px;
+}
+
+/* Like и Unlike */
+button[name="like"],
+button[name="unlike"] {
+  background-color: rgb(135, 44, 196);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button[name="like"]:hover,
+button[name="unlike"]:hover {
+  opacity: 0.8;
+}
+.orange-link {
+    color: orange; 
+  }
+
+.orange-link:hover {
+    text-decoration: underline;
+  }
+ 
+</style>

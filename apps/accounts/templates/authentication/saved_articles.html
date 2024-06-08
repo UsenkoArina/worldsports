@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="saved-articles-heading">Saved Articles</h2>
+    <ul class="saved-articles-list">
+        {% for article in saved_articles %}
+            <li class="saved-article-item">
+                <a href="{% url 'articles:detail' article.id %}" class="saved-article-link">
+                    <div class="article-thumbnail">
+                        <img src="{{ article.image.url }}" alt="Article Image" class="article-image">
+                    </div>
+                    <div class="article-info">
+                        <h3 class="article-title">{{ article.article_title }}</h3>
+                        <p class="article-description">{{ article.article_description }}</p>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+<style>
+    /* Styles for saved articles */
+    .saved-articles-heading {
+        font-size: 2rem; /* Increased header size */
+    }
+    
+    .saved-articles-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .saved-article-item {
+        width: 100%; /* One item per row */
+        margin-top: 20px;
+        margin-bottom: 20px; /* Bottom margin for items */
+    }
+
+    .saved-article-link {
+        display: flex;
+        text-decoration: none;
+        color: #000;
+        flex: 1;
+    }
+
+    .article-thumbnail {
+        max-width: 30%; /* Maximum width for the thumbnail image */
+        max-height: 200px; /* Maximum height for the thumbnail */
+        overflow: hidden;
+        margin-right: 20px; /* Right margin for the thumbnail */
+    }
+
+    .article-thumbnail img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .article-info {
+        display: flex;
+        flex-direction: column; /* Place elements in a column */
+        align-items: flex-start; /* Align elements to the left */
+        margin-left: 20px; /* Left margin for the article title */
+    }
+
+    .article-title {
+        font-weight: bold;
+        font-size: 1.2rem;
+        word-wrap: break-word; /* Allow long words to wrap */
+        white-space: normal; /* Allow text to wrap to the next line */
+        margin-left: 0; /* Remove left margin for the article title */
+    }
+
+    .article-description {
+        font-size: 1rem;
+        color: #000000;
+        margin-top: 5px; /* Top margin for the description */
+    }
+</style>
