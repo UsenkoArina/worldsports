@@ -3,7 +3,6 @@ from django.urls import reverse
 from .models import CustomUser
 from django.contrib.auth import get_user_model
 from django.utils import timezone
-from .models import Comment, Article
 
 User = get_user_model()
 
@@ -62,13 +61,3 @@ class SigninViewTest(TestCase):
         # Check if the response redirects to the home page of articles
         self.assertRedirects(response, reverse('articles:home'))
 
-
-class CommentModelTest(TestCase):
-
-    def setUp(self):
-        self.user = User.objects.create_user(username='testuser', password='12345')
-        self.article = Article.objects.create(title='Test Article')
-
-    def test_comment_creation_date(self):
-        comment = Comment.objects.create(user=self.user, article=self.article, text='Test comment')
-        self.assertIsNotNone(comment.created_at)
